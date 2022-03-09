@@ -59,7 +59,7 @@ void main() {
 */
 
 /*
-	Zmienne na stercie inicjalizujemy poprzez malloc, czyli rezerwowanie pamiêci, z biblioteki stdlib. Adresy tych zmiennych zgadzaj¹ siê
+	Zmienne na stercie inicjalizujemy poprzez malloc, czyli rezerwowanie pamiêci, z biblioteki stdlib.
 	
 */
 }
