@@ -1,7 +1,5 @@
 #include <stdio.h>
-
-int c = 2;
-int d;
+#include <stdlib.h>
 
 void main() {
 	printf("process.c\n\n");
@@ -11,19 +9,20 @@ void main() {
 	int a;
 	int b;
 
+	int *c = (int *)malloc(4*sizeof(int)); 
+	int *d = (int *)malloc(8*sizeof(int)); 
+
 	int *p_x = &x;
 	int *p_y = &y;
 	int *p_a = &a;
-	int *p_b = &b;
-	int *p_c = &c;
-	int *p_d = &d;
+	int *p_b = &b;	
 
 	printf("&x = %p\n", p_x);
 	printf("&y = %p\n", p_y);
 	printf("&a = %p\n", p_a);
 	printf("&b = %p\n", p_b);
-	printf("&c = %p\n", p_c);
-	printf("&d = %p\n", p_d);
+	printf("&c = %p\n", c);
+	printf("&d = %p\n", d);
 
 /*
     1) Przypadek - zmienne a i b niezainicjowane:
@@ -60,25 +59,7 @@ void main() {
 */
 
 /*
-	Tak, adresy zmiennych c i d zgadzaj¹ siê z map¹ procesu: trafiaj¹ ni¿ej od zmiennych zainicjowanych w main,
-	które trafiaj¹ na stos. Zmienne globalne c i d trafiaj¹ na stertê.
-	
-	x [ ][ ][ ][ ]   &x = 0061FE8C
-	y [ ][ ][ ][ ]   &y = 0061FE88
-	a [ ][ ][ ][ ]   &a = 0061FE84
-	b [ ][ ][ ][ ]   &b = 0061FE80
-	c [ ][ ][ ][ ]   &c = 00405434
-	d [ ][ ][ ][ ]   &d = 00405430
-	
-	Sytuacja zmieni siê, je¿eli zainicjujemy zmienn¹ c:
-	x [ ][ ][ ][ ]   &x = 0061FE8C
-	y [ ][ ][ ][ ]   &y = 0061FE88
-	a [ ][ ][ ][ ]   &a = 0061FE84
-	b [ ][ ][ ][ ]   &b = 0061FE80
-	c [2][ ][ ][ ]   &c = 00403004
-	d [ ][ ][ ][ ]   &d = 00405430
-	
-	Adres zmiennej c po zainicjalizowaniu jest teraz mniejszy od adresu zmiennej c, co zgadza siê z map¹ pamiêci.
+	Zmienne na stercie inicjalizujemy poprzez malloc, czyli rezerwowanie pamiêci, z biblioteki stdlib. Adresy tych zmiennych zgadzaj¹ siê
 	
 */
 }
