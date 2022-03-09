@@ -1,0 +1,5 @@
+16-bitowy adres - 64 KB
+20-bitowy adres - 1 MB
+24-bitowy adres - 16 MB
+32-bitowy adres - 4 GB
+64-bitowy adres - 16 exabytes
