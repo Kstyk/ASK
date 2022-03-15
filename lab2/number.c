@@ -7,7 +7,7 @@ int polinomial(unsigned char *p, int n) {
 	int i;
 	
 	for (i = 0; i < n; i++) {
-		suma = suma + *(p+1) * pow(256,i);
+		suma = suma + *(p+i) * pow(256,i);
 	}
 	
 	return suma;
