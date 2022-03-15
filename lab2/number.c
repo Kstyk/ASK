@@ -13,16 +13,30 @@ int polinomial(unsigned char *p, int n) {
 	return suma;
 }
 
+int horner(unsigned char *p, int n) {
+	unsigned int suma = p[n-1]; // przy tablicy {4,1,0,0} suma = 0
+	
+	int i;
+	
+	for (i = n-2; i>=0; i--) {
+		suma = p[i] + suma*pow(256,i+1);
+	}
+	
+	return suma;
+}
+
 int main() {
 	printf("number.c\n\n");
 	
-	char x[] = {4,1,0,0};
+	char x[] = {3,2,0,0};
 	
 	int n = sizeof(x);
 	
 	void *p = &x;
 	
 	printf("number(%p, %u) = %u\n", p, n, polinomial(p, n));
+	printf("number (horner)(%p, %u) = %u\n", p, n, horner(p, n));
+	
 	
 	return 0;
 }
