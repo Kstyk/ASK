@@ -14,12 +14,12 @@ int polinomial(unsigned char *p, int n) {
 }
 
 int horner(unsigned char *p, int n) {
-	unsigned int suma = p[n-1]; // przy tablicy {4,1,0,0} suma = 0
+	unsigned int suma =  *(p+n-1);
 	
 	int i;
 	
 	for (i = n-2; i>=0; i--) {
-		suma = p[i] + suma*pow(256,i+1);
+		suma = *(p+i) + suma*256;
 	}
 	
 	return suma;
